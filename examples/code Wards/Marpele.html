@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="throwingDice(1)"  class="js-btm-p1">Player 1</button>
+  <button onclick="throwingDice(2)" class="js-btm-p2">Player 2</button>
+  <p id="scoreBoard">Player 1: 0 || Player 2: 0</p>
+  <p id="diceResult"></p>
+  <p id="turns"></p>
+
+</body>
+
+<script>
+
+  let score = { player1 : 0, player2 : 0};
+  let scoreOne = 0;
+  let scoreTwo = 0;
+  let turn = 1;
+  const punish = [7, 22, 10, 35, 37, 42, 50, 56, 57, 63, 69, 72, 79, 85, 89, 91, 95, 99];
+  const prize = [11, 36, 49, 60, 68, 81, 90];
+  console.log(Object.values(score))
+
+ 
+
+  updateTurn()
+
+
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min); 
+   
+  }
+
+  function throwingDice(player){
+    let dice = getRandomInt(1, 6);
+    
+    if(turn === 1){
+      if (player === 1){
+      score.player1 += dice;
+
+      turn = 2;
+      } else if (player === 2){
+        console.alert("its player 1 turn")
+      }  
+    } else if (turn === 2){
+      if (player === 2){
+      score.player2 += dice;
+      turn = 1;
+      } else if (player === 2){
+        alert("its player 2 turn")
+
+      }
+    }
+    document.getElementById("scoreBoard").innerText = `Player 1: ${score.player1} || Player 2: ${score.player2}`;
+    document.getElementById("diceResult").innerText = `Player ${player} rolled a ${dice}!`;
+    document.getElementById("turns").innerText = `its player ${turn} turn!`;
+  
+  }
+    
+  function updateTurn() {
+    if (turn === 1) {
+      turn = 2;
+    } else if (turn === 2) {
+      turn = 1;
+    } else {
+      throw 'Invalid turn value';
+    }
+  }
+
+
+
+
+
+ 
+
+
+  
+
+
+
+
+</script>
+</html>

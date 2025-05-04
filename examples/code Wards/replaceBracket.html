@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  function replaceBrac(a){
+    let result = "";
+    let i = 0;
+    while (i < a.length){
+      let count = 1;
+      while (a[i] === a[i + count]){
+        count++;
+      }
+      if (count > 1){
+        result += ')';
+        i += count;
+      } else {
+        result += "(";
+        i++;
+      }
+    }
+    return result;
+  }
+   
+  console.log(replaceBrac('qqq'))
+
+</script>
+</html>

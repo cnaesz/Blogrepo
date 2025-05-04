@@ -1,0 +1,43 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: bisque;
+
+}
+
+.todo-main,
+.js-output{
+  align-items: center;
+  display: grid;
+  grid-template-columns:200px 150px 100px;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.js-output{
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.name-input,
+.js-date-input,
+.js-output,
+.dlt-btn,
+.btn{
+  padding: 5px;
+}
+
+.btn{
+  background-color: red;
+  font-size: 14px;
+  color: rgb(252, 251, 251);
+  cursor: pointer;
+
+}
+
+.dlt-btn{
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

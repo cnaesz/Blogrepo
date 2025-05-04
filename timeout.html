@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-button" onclick="finish()">Start</button>
+  <button class="js-button" onclick="add()">add</button><p class="js-p"></p>
+</body>
+
+<script>
+  function finish(){
+    
+    setTimeout(function(){
+      document.querySelector('.js-button').innerHTML = "Finished";
+    }, 3000)
+  }
+
+
+  function add(){
+    document.querySelector('.js-p').innerHTML = "added";
+    setTimeout(function(){
+    document.querySelector('.js-p').innerHTML = "";
+    }, 2000);
+    clearTimeout();
+  }
+
+  function countPositive(nums){
+    total = 0;
+    nums.filter((value) => {
+      if (value >= 10){
+        value = value - 5;
+        console.log(value);
+
+      }else {
+        value = value + 2;
+      }
+
+
+    })
+  }
+
+countPositive([1, -3, 5, -12, 10, -2])
+</script>
+</html>

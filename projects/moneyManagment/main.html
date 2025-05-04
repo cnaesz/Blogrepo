@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Document</title>
+</head>
+<body>
+  <h1>Lets Talk About Money!</h1>
+  <h3>your total expences is : <div class="js-totalexp"></div></h3>
+  <div>
+    <form onsubmit="addToList(event)" >
+      <label for="fname">Tell Me what u buy?</label><br>
+      <input type="text" id="fname" name="fname" placeholder="???" class="js-input-name"><br>
+      <label for="lname">What did it cost?</label><br>
+      <input type="text" id="lname" name="lname" placeholder="everything?" class="js-input-price"><br><br>
+      <input type="submit" value="Add to List">
+    </form> 
+   
+  </div>
+  <div class="js-output"></div>
+  <script src="scripts.js"></script>
+</body>
+</html>

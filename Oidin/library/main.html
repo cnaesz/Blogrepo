@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" class="js-title" placeholder="Enter book title" required maxlength="100">
+    <input type="text" class="js-author" placeholder="Enter author name" required pattern="[a-zA-Z\s]+">
+    <input type="number" class="js-pages" placeholder="Enter number of pages" required min="1">
+    <div class="js-output"></div>
+</div>
+<button onclick="addtoLibrary()">Add</button>
+</body>
+</html>
