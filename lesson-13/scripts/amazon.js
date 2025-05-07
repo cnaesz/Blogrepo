@@ -1,3 +1,6 @@
+import {cart} from '../data/cart.js';
+
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -25,7 +28,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-quantity-container">
-        <select>
+        <select class="js-quantity-selector-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -41,7 +44,7 @@ products.forEach((product) => {
 
       <div class="product-spacer"></div>
 
-      <div class="added-to-cart">
+      <div class="added-to-cart js-added-a-${product.id}">
         <img src="images/icons/checkmark.png">
         Added
       </div>
@@ -56,28 +59,81 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-document.querySelectorAll('.js-add-to-cart')
-  .forEach((button) => {
+let timeoutId;
+
+function handleClick() {
+    const productId = this.dataset.productId;
+    // Clear any existing timeout
+    clearTimeout(timeoutId);
+    const addedMsg = document.querySelector(`.js-added-a-${productId}`);
+    // Add the class
+    addedMsg.classList.add('js-added2');
+
+    // Start a new timeout
+    timeoutId = setTimeout(() => {
+        addedMsg.classList.remove('js-added2');
+    }, 3000);
+}
+
+// Example: Attach the function to a button click
+ const elements = document.querySelectorAll('.js-add-to-cart');
+
+ elements.forEach((button) => {
+  button.addEventListener("click", handleClick);
+});
+
+elements.forEach((button) => {
     button.addEventListener('click', () => {
       
+
+
+
       const productId = button.dataset.productId;
-      let matchingItems;
+
+  
+
+      const quantitySelector = document.querySelector(
+        `.js-quantity-selector-${productId}`
+      );
+      const quantity = Number(quantitySelector.value);
+      
+
+      let matchingItem;
 
       cart.forEach((item) => {
         if (productId === item.productId){
-          matchingItems = item;
+          matchingItem = item;
         }
       });
 
-      if (matchingItems){
-        matchingItems.quantity+1;
+      if (matchingItem){
+        matchingItem.quantity += quantity;
+
       } else{
           cart.push({
             productId : productId,
-            quantity: 1
+            quantity : quantity,
         });
-        console.log(cart);
+
       }
+
+      let cartQuantity = 0;
+
+      cart.forEach((item) => {
+        cartQuantity += item.quantity;
+      });
+
+      document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+
+
+
+
+
+
+      console.log(cartQuantity);
+      console.log(cart);
+    
      
     });
   });
+
