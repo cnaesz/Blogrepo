@@ -65,7 +65,7 @@ export function removeCartitem(productId){
 export function removeCartitem(productId) {
   const index = cart.findIndex(item => item.productId === productId || item.id === productId);
   if (index !== -1) {
-    cart.splice(index, 1); // تغییر درجا (in-place) روی آرایه‌ی اصلی
+    cart.splice(index, 1);
   }
   saveCart();
 }
