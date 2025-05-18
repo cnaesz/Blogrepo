@@ -209,3 +209,17 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+
+.js-input,
+.js-save-quantity {
+  width: 30px;
+  display:none;
+}
+
+.is-editing{
+  display: initial;
+}
+
+.is-edt{
+  display: none;
+}
